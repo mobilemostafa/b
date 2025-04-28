@@ -34,6 +34,7 @@
       justify-content: center;
       gap: 10px;
       flex-wrap: wrap;
+      align-items: center;
     }
     .bill-list button {
       padding: 10px 18px;
@@ -57,6 +58,18 @@
     .back-button:hover {
       background-color: #1976D2;
     }
+    .instructions {
+      font-size: 15px;
+      color: #333;
+      margin-top: 15px;
+      background: #fff3cd;
+      padding: 10px 15px;
+      border: 1px solid #ffeeba;
+      border-radius: 5px;
+      display: inline-block;
+      max-width: 80%;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
     footer {
       margin-top: 30px;
       font-size: 12px;
@@ -75,6 +88,12 @@
     <button onclick="copyToClipboard('6554770104324')">شناسه منزل</button>
     <button onclick="copyToClipboard('6538373804322')">شناسه مغازه</button>
     <button class="back-button" onclick="goHome()">بازگشت</button>
+  </div>
+
+  <div class="instructions">
+    🔹 روی یکی از دکمه‌های شناسه کلیک کنید تا شناسه برق کپی شود.<br>
+    🔹 سپس در سایت، جلوی دکمه "بررسی"، شناسه را Paste کنید.<br>
+    🔹 در آخر دکمه "بررسی" را بزنید تا نتیجه خاموشی نمایش داده شود.
   </div>
 
   <iframe id="outageFrame" src="https://outage.aepdc.ir"></iframe>
