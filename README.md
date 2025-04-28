@@ -13,13 +13,14 @@
       background: #f0f2f5;
     }
     iframe {
-      width: 90%;
+      width: 100%; /* عرض iframe 100% از صفحه نمایش */
       height: 600px;
       border: 1px solid #ccc;
       border-radius: 8px;
       margin-top: 20px;
       background: white;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
     }
     .header {
       margin-bottom: 10px;
