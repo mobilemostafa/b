@@ -1,3 +1,4 @@
+
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
@@ -8,7 +9,7 @@
       font-family: sans-serif;
       direction: rtl;
       margin: 20px;
-      background: #f9f9f9;
+      background: #f0f2f5;
     }
     iframe {
       width: 90%;
@@ -17,53 +18,75 @@
       border-radius: 8px;
       margin-top: 20px;
       background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .header {
+      margin-bottom: 10px;
+    }
+    .signature {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 20px;
     }
     .bill-list {
-      margin-top: 20px;
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
     }
-    .bill-list button, .back-button {
-      margin: 5px;
-      padding: 10px 20px;
+    .bill-list button {
+      padding: 10px 18px;
       font-size: 16px;
       cursor: pointer;
       border: none;
       background-color: #4CAF50;
       color: white;
       border-radius: 5px;
-      transition: background-color 0.3s;
+      transition: background-color 0.3s, transform 0.2s;
     }
-    .bill-list button:hover, .back-button:hover {
+    .bill-list button:hover {
       background-color: #45a049;
+      transform: scale(1.05);
+    }
+    .back-button {
+      padding: 8px 14px;
+      font-size: 14px;
+      background-color: #2196F3;
+    }
+    .back-button:hover {
+      background-color: #1976D2;
     }
     footer {
       margin-top: 30px;
-      font-size: 14px;
-      color: #555;
+      font-size: 12px;
+      color: #999;
     }
   </style>
 </head>
 <body>
 
-  <h1>بررسی خاموشی برق (منزل و مغازه)</h1>
+  <div class="header">
+    <h1>بررسی خاموشی برق (منزل و مغازه)</h1>
+    <div class="signature">طراحی شده توسط <strong>مصطفی ماندگاری</strong> 🌟</div>
+  </div>
 
   <div class="bill-list">
-    <p>روی شناسه کلیک کن تا کپی بشه:</p>
-    <button onclick="copyToClipboard('6554770104324')">شناسه منزل: 6554770104324</button>
-    <button onclick="copyToClipboard('6538373804322')">شناسه مغازه: 6538373804322</button>
-    <br><br>
-    <button class="back-button" onclick="goHome()">بازگشت به صفحه اصلی</button>
+    <button onclick="copyToClipboard('6554770104324')">شناسه منزل</button>
+    <button onclick="copyToClipboard('6538373804322')">شناسه مغازه</button>
+    <button class="back-button" onclick="goHome()">بازگشت</button>
   </div>
 
   <iframe id="outageFrame" src="https://outage.aepdc.ir"></iframe>
 
   <footer>
-    طراحی شده توسط <strong>مصطفی ماندگاری</strong> 🌟
+    © تمام حقوق محفوظ است.
   </footer>
 
   <script>
     function copyToClipboard(text) {
       navigator.clipboard.writeText(text)
-        .then(() => alert('✅ شناسه کپی شد! حالا تو فرم سایت paste کن.'))
+        .then(() => alert('✅ شناسه کپی شد! حالا در فرم سایت Paste کن.'))
         .catch(err => alert('❌ خطا در کپی کردن.'));
     }
 
