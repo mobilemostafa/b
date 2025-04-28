@@ -2,42 +2,32 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- این خط برای ریسپانسیو بودن صفحه ضروریه -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>بررسی خاموشی برق</title>
   <style>
     body {
-      text-align: center;
+      margin: 0;
+      padding: 0;
       font-family: sans-serif;
       direction: rtl;
-      margin: 20px;
       background: #f0f2f5;
     }
-    iframe {
-      width: 100%; /* عرض iframe 100% از صفحه نمایش */
-      height: 600px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      margin-top: 20px;
-      background: white;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      overflow: hidden;
-    }
-    .header {
-      margin-bottom: 10px;
+    .header, .bill-list, .instructions, footer {
+      padding: 10px;
+      text-align: center;
     }
     .signature {
       font-size: 14px;
       color: #666;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
     .bill-list {
-      margin-top: 10px;
       display: flex;
-      justify-content: center;
-      gap: 10px;
       flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
       align-items: center;
-      flex-direction: column; /* در موبایل دکمه‌ها زیر هم قرار می‌گیرند */
+      margin-bottom: 10px;
     }
     .bill-list button {
       padding: 10px 18px;
@@ -47,45 +37,46 @@
       background-color: #4CAF50;
       color: white;
       border-radius: 5px;
-      transition: background-color 0.3s, transform 0.2s;
+      transition: 0.3s;
     }
     .bill-list button:hover {
       background-color: #45a049;
       transform: scale(1.05);
     }
     .back-button {
-      padding: 8px 14px;
-      font-size: 14px;
       background-color: #2196F3;
     }
     .back-button:hover {
       background-color: #1976D2;
     }
     .instructions {
-      font-size: 15px;
-      color: #333;
-      margin-top: 15px;
       background: #fff3cd;
-      padding: 10px 15px;
+      padding: 8px 12px;
       border: 1px solid #ffeeba;
       border-radius: 5px;
-      display: inline-block;
-      max-width: 80%;
+      font-size: 15px;
+      margin-bottom: 10px;
       box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      max-width: 95%;
+      margin: auto;
+    }
+    iframe {
+      width: 100vw; /* تمام عرض صفحه */
+      height: calc(100vh - 300px); /* ارتفاع با کم کردن ارتفاع بالایی */
+      border: none;
+      margin-top: 10px;
     }
     footer {
-      margin-top: 30px;
       font-size: 12px;
       color: #999;
+      margin-top: 10px;
     }
-
-    /* Media query برای صفحات کوچک (مثل موبایل) */
-    @media only screen and (max-width: 768px) {
-      iframe {
-        height: 400px; /* اندازه iframe در موبایل کمتر میشه */
-      }
+    @media (max-width: 768px) {
       .bill-list button {
-        width: 100%; /* دکمه‌ها در موبایل تمام عرض صفحه رو می‌گیرن */
+        width: 100%;
+      }
+      iframe {
+        height: calc(100vh - 400px);
       }
     }
   </style>
@@ -94,7 +85,7 @@
 
   <div class="header">
     <h1>بررسی خاموشی برق (منزل و مغازه)</h1>
-    <div class="signature">طراحی شده توسط <strong>مصطفی ماندگاری</strong> 🌟</div>
+    <div class="signature">ساخته شده توسط <strong>مصطفی ماندگاری</strong> 🌟</div>
   </div>
 
   <div class="bill-list">
@@ -104,14 +95,14 @@
   </div>
 
   <div class="instructions">
-    🔹 روی یکی از دکمه‌های شناسه کلیک کنید تا شناسه برق کپی شود.<br>
-    🔹 سپس در سایت، جلوی دکمه "بررسی"، شناسه را Paste کنید.
+    🔹 روی یکی از دکمه‌های شناسه کلیک کنید تا کپی شود.<br>
+    🔹 سپس داخل سایت، جلوی دکمه "بررسی"، Paste کنید و دکمه بررسی را بزنید.
   </div>
 
   <iframe id="outageFrame" src="https://outage.aepdc.ir"></iframe>
 
   <footer>
-    © تمام حقوق محفوظ است.
+    © طراحی و توسعه توسط مصطفی ماندگاری
   </footer>
 
   <script>
@@ -120,7 +111,6 @@
         .then(() => alert('✅ شناسه کپی شد! حالا در فرم سایت Paste کن.'))
         .catch(err => alert('❌ خطا در کپی کردن.'));
     }
-
     function goHome() {
       document.getElementById('outageFrame').src = 'https://outage.aepdc.ir';
     }
