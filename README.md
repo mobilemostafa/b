@@ -2,6 +2,7 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- این خط برای ریسپانسیو بودن صفحه ضروریه -->
   <title>بررسی خاموشی برق</title>
   <style>
     body {
@@ -35,6 +36,7 @@
       gap: 10px;
       flex-wrap: wrap;
       align-items: center;
+      flex-direction: column; /* در موبایل دکمه‌ها زیر هم قرار می‌گیرند */
     }
     .bill-list button {
       padding: 10px 18px;
@@ -75,6 +77,16 @@
       font-size: 12px;
       color: #999;
     }
+
+    /* Media query برای صفحات کوچک (مثل موبایل) */
+    @media only screen and (max-width: 768px) {
+      iframe {
+        height: 400px; /* اندازه iframe در موبایل کمتر میشه */
+      }
+      .bill-list button {
+        width: 100%; /* دکمه‌ها در موبایل تمام عرض صفحه رو می‌گیرن */
+      }
+    }
   </style>
 </head>
 <body>
@@ -92,8 +104,7 @@
 
   <div class="instructions">
     🔹 روی یکی از دکمه‌های شناسه کلیک کنید تا شناسه برق کپی شود.<br>
-    🔹 سپس در سایت، جلوی دکمه "بررسی"، شناسه را Paste کنید.<br>
-    🔹 در آخر دکمه "بررسی" را بزنید تا نتیجه خاموشی نمایش داده شود.
+    🔹 سپس در سایت، جلوی دکمه "بررسی"، شناسه را Paste کنید.
   </div>
 
   <iframe id="outageFrame" src="https://outage.aepdc.ir"></iframe>
