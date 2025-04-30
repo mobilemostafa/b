@@ -63,6 +63,21 @@
       color: #999;
       margin-top: 10px;
     }
+    .back-button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: center;
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+    .back-button:hover {
+      background-color: #0056b3;
+    }
     @media (max-width: 768px) {
       .bill-list button {
         width: 100%;
@@ -78,6 +93,8 @@
   <div class="header">
     <div class="signature">ساخته شده توسط <strong>مصطفی ماندگاری</strong> 🌟</div>
   </div>
+
+  <button class="back-button" onclick="window.history.back();">بازگشت به صفحه اصلی</button>
 
   <div class="bill-list">
     <button onclick="copyAndRefresh('6554770104324')">شناسه منزل (6554770104324)</button>
