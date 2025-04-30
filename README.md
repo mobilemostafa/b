@@ -12,7 +12,7 @@
       direction: rtl;
       background: #f0f2f5;
     }
-    .header, .bill-list, .instructions, footer {
+    .header, .bill-list, .note, footer {
       padding: 10px;
       text-align: center;
     }
@@ -27,7 +27,7 @@
       gap: 10px;
       justify-content: center;
       align-items: center;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
     }
     .bill-list button {
       padding: 10px 18px;
@@ -43,26 +43,18 @@
       background-color: #45a049;
       transform: scale(1.05);
     }
-    .back-button {
-      background-color: #2196F3;
-    }
-    .back-button:hover {
-      background-color: #1976D2;
-    }
-    .instructions {
-      background: #fff3cd;
-      padding: 8px 12px;
+    .note {
+      font-size: 14px;
+      color: #555;
+      background-color: #fff3cd;
       border: 1px solid #ffeeba;
       border-radius: 5px;
-      font-size: 15px;
-      margin-bottom: 10px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      margin: 0 auto 10px auto;
       max-width: 95%;
-      margin: auto;
     }
     iframe {
-      width: 100vw; /* تمام عرض صفحه */
-      height: calc(100vh - 300px); /* ارتفاع با کم کردن ارتفاع بالایی */
+      width: 100vw;
+      height: calc(100vh - 250px);
       border: none;
       margin-top: 10px;
     }
@@ -76,7 +68,7 @@
         width: 100%;
       }
       iframe {
-        height: calc(100vh - 400px);
+        height: calc(100vh - 290px);
       }
     }
   </style>
@@ -89,14 +81,12 @@
   </div>
 
   <div class="bill-list">
-    <button onclick="copyToClipboard('6554770104324')">شناسه منزل</button>
-    <button onclick="copyToClipboard('6538373804322')">شناسه مغازه</button>
-    <button class="back-button" onclick="goHome()">بازگشت</button>
+    <button onclick="copyAndRefresh('6554770104324')">شناسه منزل (6554770104324)</button>
+    <button onclick="copyAndRefresh('6538373804322')">شناسه مغازه (6538373804322)</button>
   </div>
 
-  <div class="instructions">
-    🔹 روی یکی از دکمه‌های شناسه کلیک کنید تا کپی شود.<br>
-    🔹 سپس داخل سایت، جلوی دکمه "بررسی"، Paste کنید و دکمه بررسی را بزنید.
+  <div class="note">
+    با زدن دکمه، شناسه به‌صورت خودکار در حافظه کپی می‌شود. آن را در کادر جستجوی سایت جای‌گذاری کرده و روی دکمه بررسی کلیک کنید.
   </div>
 
   <iframe id="outageFrame" src="https://outage.aepdc.ir"></iframe>
@@ -106,13 +96,10 @@
   </footer>
 
   <script>
-    function copyToClipboard(text) {
-      navigator.clipboard.writeText(text)
-        .then(() => alert('✅ شناسه کپی شد! حالا در فرم سایت Paste کن.'))
-        .catch(err => alert('❌ خطا در کپی کردن.'));
-    }
-    function goHome() {
-      document.getElementById('outageFrame').src = 'https://outage.aepdc.ir';
+    function copyAndRefresh(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        document.getElementById('outageFrame').src = 'https://outage.aepdc.ir';
+      });
     }
   </script>
 
